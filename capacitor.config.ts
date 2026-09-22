@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: "com.frdevelopers.shopgrid",
-  appName: "FR SHOP GRID",
+  appId: "com.frdevelopers.storepilot",
+  appName: "FR StorePilot",
   webDir: "web",
   server: {
     url: "https://frdevelopers.com/login",
