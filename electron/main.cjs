@@ -11,24 +11,22 @@ function createWindow() {
     minHeight: 720,
     show: false,
     backgroundColor: "#15152a",
-    title: "FR SHOP GRID",
+    title: "FR StorePilot",
+    icon: require("path").join(__dirname, "..", "assets", "icon.png"),
     autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
-      partition: "persist:fr-shop-grid"
+      partition: "persist:fr-storepilot"
     }
   });
 
   window.once("ready-to-show", () => window.show());
 
   window.webContents.setWindowOpenHandler(({ url }) => {
-    if (url.startsWith(APP_ORIGIN)) {
-      window.loadURL(url);
-    } else {
-      shell.openExternal(url);
-    }
+    if (url.startsWith(APP_ORIGIN)) window.loadURL(url);
+    else shell.openExternal(url);
     return { action: "deny" };
   });
 
@@ -42,7 +40,7 @@ function createWindow() {
   window.loadURL(APP_URL);
 }
 
-app.setAppUserModelId("com.frdevelopers.shopgrid");
+app.setAppUserModelId("com.frdevelopers.storepilot");
 
 app.whenReady().then(() => {
   createWindow();
