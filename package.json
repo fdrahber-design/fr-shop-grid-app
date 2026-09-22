@@ -1,10 +1,11 @@
 {
-  "name": "fr-shop-grid-app",
-  "version": "1.0.0",
+  "name": "fr-storepilot-app",
+  "version": "1.1.0",
   "private": true,
-  "description": "FR SHOP GRID mobile and desktop application",
+  "description": "FR StorePilot mobile and desktop application",
   "main": "electron/main.cjs",
   "scripts": {
+    "assets:generate": "node scripts/generate-assets.cjs",
     "android:add": "cap add android",
     "android:sync": "cap sync android",
     "build:windows": "electron-builder --win portable --x64"
@@ -14,29 +15,33 @@
     "@capacitor/core": "7.4.3"
   },
   "devDependencies": {
+    "@capacitor/assets": "3.0.5",
     "@capacitor/cli": "7.4.3",
     "electron": "38.3.0",
-    "electron-builder": "26.0.12"
+    "electron-builder": "26.0.12",
+    "sharp": "0.34.3"
   },
   "build": {
-    "appId": "com.frdevelopers.shopgrid",
-    "productName": "FR SHOP GRID",
+    "appId": "com.frdevelopers.storepilot",
+    "productName": "FR StorePilot",
     "asar": true,
     "directories": {
       "output": "dist"
     },
     "files": [
       "electron/**/*",
+      "assets/icon.png",
       "package.json"
     ],
     "win": {
+      "icon": "assets/icon.png",
       "target": [
         {
           "target": "portable",
           "arch": ["x64"]
         }
       ],
-      "artifactName": "FR-SHOP-GRID-Windows-${version}.exe"
+      "artifactName": "FR-StorePilot-Windows-${version}.exe"
     }
   }
 }
